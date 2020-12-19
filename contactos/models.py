@@ -15,10 +15,3 @@ class Contactos(models.Model):
 
     class Meta:
         ordering = ['first_name']
-
-    
-    class Admin:
-        """
-        config the admin site
-        """
-        list_display = ('first_name', 'phone_number')
