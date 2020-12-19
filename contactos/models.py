@@ -11,3 +11,14 @@ class Contactos(models.Model):
 
     def __str__(self):
         return f'{self.first_name}  {self.phone_number}  {self.name_user}'
+
+
+    class Meta:
+        ordering = ['first_name']
+
+    
+    class Admin:
+        """
+        config the admin site
+        """
+        list_display = ('first_name', 'phone_number')
