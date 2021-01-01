@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libreta</title>
+    <title>Libreta | {% block title %}
+        login
+    {% endblock title %}</title>
 </head>
 <body>
-    <h1>Sign in</h1>
-    <div>
-        <h3>User</h3>
-        <input type="User">
-        <br>
-        <br>
-        <h3>Contraceña</h3>
-        <input type="Contraseña">
-    </div>
+
+    {% block title_h1 %}
+        <h1>Login</h1>
+    {% endblock %}
+    
+    {% block navbar %}
+        <hr />
+        <ul>
+            <li>
+                <a href="{% url 'login' %}">Inicio</a>
+            </li>
+            <li>
+                <a href="{% url 'register_user' %}">Register User</a>
+            </li>
+        </ul>
+    {% endblock navbar %}
+   
+
+    {% block contend %}
+        
+    {% endblock contend %}
 
 
 </body>

@@ -6,7 +6,7 @@ class Contactos(models.Model):
     name_user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, blank=True)
-    phone_number = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=10)
     email = models.EmailField(max_length=255, blank=True)
 
     def __str__(self):
@@ -14,4 +14,4 @@ class Contactos(models.Model):
 
 
     class Meta:
-        ordering = ['first_name']
+        ordering = ['name_user']

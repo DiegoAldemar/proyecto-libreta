@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Contacts
+{% endblock title %}
+
+{% block title_h1 %}
+    <h1>You Contacts</h1>
+{% endblock title_h1 %}
+
+{% block navbar %}
+    <li>
+        <a href="{% url 'register_contactos' %}">Register Contacts</a>
+    </li>
+    <li>
+        <a href= "{% url 'login' %}" >Salir</a>
+    </li>
+{% endblock navbar %}
+
+{% block contend %}
+{% endblock contend %}
+

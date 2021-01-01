@@ -19,5 +19,12 @@ from contactos import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('contactos.urls'), name='api'),
+    path('api/', include('contactos.api.urls'), name='api'),
+
+    path('login/', views.login, name='login'),
+
+    path('contactos/', views.get_contactos, name='view_contactos'),
+    path('contactos/register/', views.register_contacts, name='register_contactos'),
+    path('contactos/guardado/', views.get_contactos, name='guardado_contactos'),
+    path('register-user/', views.register_user, name='register_user'),
 ]
