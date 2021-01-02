@@ -14,6 +14,13 @@
     {% endblock %}
     
     {% block navbar %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class='message'>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         <hr />
         <ul>
             <li>
@@ -27,7 +34,12 @@
    
 
     {% block contend %}
-        
+        <form action="" method='POST'>
+            {% csrf_token %}
+            <input type="text" placeholder='Username' required='true' name='username' id='username' value=''>
+            <input type="password" placeholder='Password' required='true' name='password'>
+            <input type="submit" value='Login'>
+        </form>
     {% endblock contend %}
 
 

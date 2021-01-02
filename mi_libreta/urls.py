@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('contactos.api.urls'), name='api'),
 
-    path('login/', views.login, name='login'),
+    path('login/', views.login_view, name='login'),
 
     path('contactos/', views.get_contactos, name='view_contactos'),
     path('contactos/register/', views.register_contacts, name='register_contactos'),

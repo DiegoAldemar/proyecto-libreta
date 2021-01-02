@@ -11,9 +11,10 @@ class ContactosForm(ModelForm):
 
 
 class Register_UserForm(ModelForm):
-    username = CharField(widget=forms.PasswordInput)
+    username = CharField(validators = [validators.RegexValidator('[A-Za-z0-9]', message='solo letras y numeros')])
+    password = CharField(widget=forms.PasswordInput, validators= [validators.MinLengthValidator(6, 'mas de 6 caracteres')])
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name']
+        fields = ['username', 'email', 'first_name', 'last_name', 'password']
         
 

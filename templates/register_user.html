@@ -13,11 +13,10 @@
         {% csrf_token %}
         {{ form.as_p }}
         
-        <label for="password">Password</label>
-        <input type="password" required="true" name="password" required id="password">
-        <br>
-        <br>
-        <label for="password_confirmation">Password Confirmation</label>
+        {% comment %} <label for="password">Password</label>
+        <input type="password" required="true" name="password" required id="password"> {% endcomment %}
+        
+        <label for="password_confirmation">Password Confirmation:</label>
         <input type="password" required="true" name="password_confirmation" required id="password_confirmation">
         <input type="submit" value="Crear usuario" >
     </form>

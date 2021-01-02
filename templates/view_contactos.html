@@ -18,5 +18,16 @@
 {% endblock navbar %}
 
 {% block contend %}
+    <ul>
+        {% for ver_contacto in ver_contactos %}
+            <li>
+                {{ ver_contacto.name_user }} -
+                {{ ver_contacto.first_name }} - 
+                {{ ver_contacto.last_name }} -
+                {{ ver_contacto.phone_number }} -
+                {{ ver_contacto.email }}
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock contend %}
 
