@@ -4,6 +4,7 @@ from .forms import ContactosForm, Register_UserForm
 from contactos.models import Contactos
 from django.forms import BaseModelFormSet
 from django.contrib.auth.models import User
+from .models import Contactos
 
 
 def login(request):
@@ -12,6 +13,7 @@ def login(request):
 
 
 def get_contactos(request):
+
     return render(request, 'view_contactos.html')
 
 def register_contacts(request):
