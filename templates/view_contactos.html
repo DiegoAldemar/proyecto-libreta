@@ -5,7 +5,9 @@
 {% endblock title %}
 
 {% block title_h1 %}
-    <h1>You Contacts</h1>
+    <h1>Bienvenido a tus contactos,</h1>
+    <h2>{{ request.user.first_name }} {{ user.last_name }}</h2>
+    
 {% endblock title_h1 %}
 
 {% block navbar %}
@@ -13,20 +15,22 @@
         <a href="{% url 'register_contactos' %}">Register Contacts</a>
     </li>
     <li>
-        <a href= "{% url 'login' %}" >Salir</a>
+        <a href= "{% url 'logout' %}" >Salir</a>
     </li>
 {% endblock navbar %}
 
 {% block contend %}
     <ul>
         {% for ver_contacto in ver_contactos %}
-            <li>
-                {{ ver_contacto.name_user }} -
-                {{ ver_contacto.first_name }} - 
-                {{ ver_contacto.last_name }} -
-                {{ ver_contacto.phone_number }} -
-                {{ ver_contacto.email }}
-            </li>
+            {% if ver_contacto.name_user_id == user.id %}
+                <li>
+                    {{ ver_contacto.first_name }} - 
+                    {{ ver_contacto.last_name }} -
+                    {{ ver_contacto.phone_number }} -
+                    {{ ver_contacto.email }}
+                </li>
+            {% endif %}
+            
         {% endfor %}
     </ul>
 {% endblock contend %}

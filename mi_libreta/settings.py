@@ -128,3 +128,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#login required, la redireccion a login para losque no han iniciado sesion
+LOGIN_URL ='/login/'

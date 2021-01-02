@@ -22,16 +22,20 @@ def login_view(request):
             messages.error(request, 'Usuario Erroneo')
     return render(request, 'base.html')
 
+
 @login_required
 def logout_view(request):
     logout(request)
     return redirect('login')
+
 
 @login_required
 def get_contactos(request):
     ver_contactos = Contactos.objects.all()
     return render(request, 'view_contactos.html', {'ver_contactos':ver_contactos})
 
+
+@login_required
 def register_contacts(request):
     if request.method == 'POST':
         form = ContactosForm(request.POST)

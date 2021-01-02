@@ -22,7 +22,7 @@ urlpatterns = [
     path('api/', include('contactos.api.urls'), name='api'),
 
     path('login/', views.login_view, name='login'),
-
+    path('logout/', views.logout_view, name='logout'),
     path('contactos/', views.get_contactos, name='view_contactos'),
     path('contactos/register/', views.register_contacts, name='register_contactos'),
     path('contactos/guardado/', views.get_contactos, name='guardado_contactos'),

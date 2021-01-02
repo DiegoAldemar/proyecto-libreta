@@ -34,7 +34,7 @@
    
 
     {% block contend %}
-        <form action="" method='POST'>
+        <form action="{% url 'login' %}" method='POST'>
             {% csrf_token %}
             <input type="text" placeholder='Username' required='true' name='username' id='username' value=''>
             <input type="password" placeholder='Password' required='true' name='password'>
