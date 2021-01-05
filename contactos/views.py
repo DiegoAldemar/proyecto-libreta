@@ -31,8 +31,11 @@ def logout_view(request):
 
 @login_required
 def get_contactos(request):
-    ver_contactos = Contactos.objects.all()
-    return render(request, 'view_contactos.html', {'ver_contactos':ver_contactos})
+    ver_contactos = Contactos.objects.filter(name_user_id=request.user)
+    numero_contanctos = ver_contactos.count()
+    print(request.user.id)
+    return render(request, 'view_contactos.html', {'ver_contactos':ver_contactos,
+                                                    'numero_contactos':numero_contanctos})
 
 
 @login_required
@@ -41,7 +44,7 @@ def register_contacts(request):
         form = ContactosForm(request.POST)
         if form.is_valid():
             form.save()
-            guardado = 'Contacto Guardado'
+            messages.success(request, 'Contacto Guardado!!!!')
             return redirect('view_contactos')
     else:
         form = ContactosForm()
