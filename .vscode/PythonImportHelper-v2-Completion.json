@@ -738,7 +738,7 @@
         "kind": 6,
         "importPath": "contactos.forms",
         "description": "contactos.forms",
-        "peekOfCode": "class ContactosForm(ModelForm):\n    class Meta:\n        model = Contactos\n        fields = ['name_user', 'first_name', 'last_name', 'phone_number', 'email']\nclass Register_UserForm(ModelForm):\n    #username = CharField(validators = [validators.RegexValidator('[A-Za-z0-9]', message='solo letras y numeros')])\n    password = CharField(widget=forms.PasswordInput, validators= [validators.MinLengthValidator(6, 'mas de 6 caracteres')])\n    class Meta:\n        model = User\n        fields = ['username', 'email', 'first_name', 'last_name', 'password']",
+        "peekOfCode": "class ContactosForm(ModelForm):\n    class Meta:\n        model = Contactos\n        fields = ['first_name', 'last_name', 'phone_number', 'email']\nclass Register_UserForm(ModelForm):\n    #username = CharField(validators = [validators.RegexValidator('[A-Za-z0-9]', message='solo letras y numeros')])\n    password = CharField(widget=forms.PasswordInput, validators= [validators.MinLengthValidator(6, 'mas de 6 caracteres')])\n    class Meta:\n        model = User\n        fields = ['username', 'email', 'first_name', 'last_name', 'password']",
         "detail": "contactos.forms",
         "documentation": {}
     },
@@ -783,7 +783,7 @@
         "kind": 2,
         "importPath": "contactos.views",
         "description": "contactos.views",
-        "peekOfCode": "def get_contactos(request):\n    ver_contactos = Contactos.objects.filter(name_user_id=request.user)\n    numero_contanctos = ver_contactos.count()\n    print(request.user.id)\n    return render(request, 'view_contactos.html', {'ver_contactos':ver_contactos,\n                                                    'numero_contactos':numero_contanctos})\n@login_required\ndef register_contacts(request):\n    if request.method == 'POST':\n        form = ContactosForm(request.POST)",
+        "peekOfCode": "def get_contactos(request):\n    ver_contactos = Contactos.objects.filter(name_user_id=request.user)\n    numero_contanctos = ver_contactos.count()\n    print(request.user.id)\n    return render(request, 'view_contactos.html', {'ver_contactos':ver_contactos,\n                                                    'numero_contactos':numero_contanctos})\n@login_required\ndef register_contacts(request):\n    if request.method == 'POST':\n        save_contact = Contactos(name_user_id=request.user.id)",
         "detail": "contactos.views",
         "documentation": {}
     },
@@ -792,7 +792,7 @@
         "kind": 2,
         "importPath": "contactos.views",
         "description": "contactos.views",
-        "peekOfCode": "def register_contacts(request):\n    if request.method == 'POST':\n        form = ContactosForm(request.POST)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Contacto Guardado!!!!')\n            return redirect('view_contactos')\n    else:\n        form = ContactosForm()\n    return render(request, 'register_contactos.html', {'form':form})",
+        "peekOfCode": "def register_contacts(request):\n    if request.method == 'POST':\n        save_contact = Contactos(name_user_id=request.user.id)\n        form = ContactosForm(request.POST, instance=save_contact)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Contacto Guardado!!!!')\n            return redirect('view_contactos')\n    else:\n        form = ContactosForm()",
         "detail": "contactos.views",
         "documentation": {}
     },

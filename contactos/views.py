@@ -41,7 +41,8 @@ def get_contactos(request):
 @login_required
 def register_contacts(request):
     if request.method == 'POST':
-        form = ContactosForm(request.POST)
+        save_contact = Contactos(name_user_id=request.user.id)
+        form = ContactosForm(request.POST, instance=save_contact)
         if form.is_valid():
             form.save()
             messages.success(request, 'Contacto Guardado!!!!')

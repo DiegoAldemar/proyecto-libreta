@@ -27,15 +27,17 @@
 {% endblock navbar %}
 
 {% block contend %}
-    <ul>
+    <ol>
         {% for ver_contacto in ver_contactos %}
             <li>
                 {{ ver_contacto.first_name }} - 
                 {{ ver_contacto.last_name }} -
                 {{ ver_contacto.phone_number }} -
-                {{ ver_contacto.email }}
+                {{ ver_contacto.email }} - 
+                <input type="submit" name='editar' value='Editar'>
+                <input type="submit" name='eliminar' value='Eliminar' action='' method='delete'>
             </li>
         {% endfor %}
-    </ul>
+    </ol>
 {% endblock contend %}
 

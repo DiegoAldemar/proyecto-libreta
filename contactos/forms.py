@@ -7,7 +7,7 @@ from django.core import validators
 class ContactosForm(ModelForm):
     class Meta:
         model = Contactos
-        fields = ['name_user', 'first_name', 'last_name', 'phone_number', 'email']
+        fields = ['first_name', 'last_name', 'phone_number', 'email']
 
 
 class Register_UserForm(ModelForm):
