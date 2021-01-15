@@ -845,7 +845,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = secret_key\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = secret_key\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = debug\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
@@ -854,7 +854,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "SECRET_KEY = secret_key\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = secret_key\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = debug\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
@@ -863,7 +863,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = debug\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
@@ -917,7 +917,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'mi_libreta.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/3.1/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':  'db_libreta',\n        'USER': 'daldemar',\n        'PASSWORD': '1qazxsw2',\n        'PORT': '5432',",
+        "peekOfCode": "WSGI_APPLICATION = 'mi_libreta.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/3.1/ref/settings/#databases\nDATABASES = databases\n# Password validation\n# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
@@ -926,7 +926,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':  'db_libreta',\n        'USER': 'daldemar',\n        'PASSWORD': '1qazxsw2',\n        'PORT': '5432',\n        'HOST': '127.0.0.1',\n    }\n}",
+        "peekOfCode": "DATABASES = databases\n# Password validation\n# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
@@ -1034,7 +1034,25 @@
         "kind": 5,
         "importPath": "secret_key.secret",
         "description": "secret_key.secret",
-        "peekOfCode": "secret_key = '0unkb-1ee1_r6$0s1-_(e11sd%__2ihj$&-@s7lmyweslkm=_('",
+        "peekOfCode": "secret_key = '0unkb-1ee1_r6$0s1-_(e11sd%__2ihj$&-@s7lmyweslkm=_('\ndebug = True\ndatabases = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':  'db_libreta',\n        'USER': 'daldemar',\n        'PASSWORD': '1qazxsw2',\n        'PORT': '5432',\n        'HOST': '127.0.0.1',",
+        "detail": "secret_key.secret",
+        "documentation": {}
+    },
+    {
+        "label": "debug",
+        "kind": 5,
+        "importPath": "secret_key.secret",
+        "description": "secret_key.secret",
+        "peekOfCode": "debug = True\ndatabases = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':  'db_libreta',\n        'USER': 'daldemar',\n        'PASSWORD': '1qazxsw2',\n        'PORT': '5432',\n        'HOST': '127.0.0.1',\n    }",
+        "detail": "secret_key.secret",
+        "documentation": {}
+    },
+    {
+        "label": "databases",
+        "kind": 5,
+        "importPath": "secret_key.secret",
+        "description": "secret_key.secret",
+        "peekOfCode": "databases = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':  'db_libreta',\n        'USER': 'daldemar',\n        'PASSWORD': '1qazxsw2',\n        'PORT': '5432',\n        'HOST': '127.0.0.1',\n    }\n}",
         "detail": "secret_key.secret",
         "documentation": {}
     },

@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = debug
 
 ALLOWED_HOSTS = []
 
@@ -80,16 +80,7 @@ WSGI_APPLICATION = 'mi_libreta.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':  'db_libreta',
-        'USER': 'daldemar',
-        'PASSWORD': '1qazxsw2',
-        'PORT': '5432',
-        'HOST': '127.0.0.1',
-    }
-}
+DATABASES = databases
 
 
 # Password validation
