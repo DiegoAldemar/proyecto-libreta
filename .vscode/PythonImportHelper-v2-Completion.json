@@ -538,6 +538,14 @@
         "documentation": {}
     },
     {
+        "label": "*",
+        "importPath": "secret_key.secret",
+        "description": "secret_key.secret",
+        "isExtraImport": true,
+        "detail": "secret_key.secret",
+        "documentation": {}
+    },
+    {
         "label": "views",
         "importPath": "contactos",
         "description": "contactos",
@@ -833,15 +841,6 @@
         "documentation": {}
     },
     {
-        "label": "secret_key",
-        "kind": 5,
-        "importPath": "mi_libreta.secret",
-        "description": "mi_libreta.secret",
-        "peekOfCode": "secret_key = '0unkb-1ee1_r6$0s1-_(e11sd%__2ihj$&-@s7lmyweslkm=_('",
-        "detail": "mi_libreta.secret",
-        "documentation": {}
-    },
-    {
         "label": "BASE_DIR",
         "kind": 5,
         "importPath": "mi_libreta.settings",
@@ -1028,6 +1027,15 @@
         "description": "mi_libreta.wsgi",
         "peekOfCode": "application = get_wsgi_application()",
         "detail": "mi_libreta.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "secret_key",
+        "kind": 5,
+        "importPath": "secret_key.secret",
+        "description": "secret_key.secret",
+        "peekOfCode": "secret_key = '0unkb-1ee1_r6$0s1-_(e11sd%__2ihj$&-@s7lmyweslkm=_('",
+        "detail": "secret_key.secret",
         "documentation": {}
     },
     {
