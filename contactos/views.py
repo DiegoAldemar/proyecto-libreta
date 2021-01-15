@@ -51,6 +51,7 @@ def register_contacts(request):
         form = ContactosForm()
     return render(request, 'register_contactos.html', {'form':form})
 
+
 @login_required
 def edit_contact(request, id):
     contacto_editar = Contactos.objects.filter(id=id).values()
@@ -73,6 +74,7 @@ def delete_contacto(request, id):
     delete_contacto.delete()
     messages.warning(request, '¿Desea Eliminar Contacto?')
     return redirect('view_contactos')
+
 
 def register_user(request):
     if request.method == 'POST':

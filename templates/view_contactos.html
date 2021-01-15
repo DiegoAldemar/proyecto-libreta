@@ -27,18 +27,28 @@
 {% endblock navbar %}
 
 {% block content %}
-    <ol>
-        {% for ver_contacto in ver_contactos %}
-            <li>
-                {{ ver_contacto.first_name }} - 
-                {{ ver_contacto.last_name }} -
-                {{ ver_contacto.phone_number }} -
-                {{ ver_contacto.email }} - 
-                <a href={% url 'edit_contacto' ver_contacto.id %}>Editar</a>
-                <a href={% url 'delete_contacto' ver_contacto.id %}>Eliminar</a>
-                <br><br>
-            </li>
-        {% endfor %}
-    </ol>
+    <table border="1">
+        <tr>
+            {% comment %} <th>N°</th> {% endcomment %}
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr>
+            {% for ver_contacto in ver_contactos %}
+                    <tr>
+                        <td>{{ ver_contacto.first_name }}</td>
+                        <td>{{ ver_contacto.last_name }}</td>
+                        <td>{{ ver_contacto.phone_number }}</td>
+                        <td>{{ ver_contacto.email }}</td>
+                        <td><a href={% url 'edit_contacto' ver_contacto.id %}>Editar</a></td>
+                        <td><a href={% url 'delete_contacto' ver_contacto.id %}>Eliminar</a></td>
+                    </tr>
+            {% endfor %}
+        </tr>
+    </table>
 {% endblock content %}
 
