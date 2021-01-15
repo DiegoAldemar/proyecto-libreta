@@ -1022,6 +1022,33 @@
         "documentation": {}
     },
     {
+        "label": "secret_key",
+        "kind": 5,
+        "importPath": "secret_key.secret",
+        "description": "secret_key.secret",
+        "peekOfCode": "secret_key = '0unkb-1ee1_r6$0s1-_(e11sd%__2ihj$&-@s7lmyweslkm=_('\ndebug = True\ndatabases = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':  'db_libreta',\n        'USER': 'daldemar',\n        'PASSWORD': '1qazxsw2',\n        'PORT': '5432',\n        'HOST': '127.0.0.1',",
+        "detail": "secret_key.secret",
+        "documentation": {}
+    },
+    {
+        "label": "debug",
+        "kind": 5,
+        "importPath": "secret_key.secret",
+        "description": "secret_key.secret",
+        "peekOfCode": "debug = True\ndatabases = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':  'db_libreta',\n        'USER': 'daldemar',\n        'PASSWORD': '1qazxsw2',\n        'PORT': '5432',\n        'HOST': '127.0.0.1',\n    }",
+        "detail": "secret_key.secret",
+        "documentation": {}
+    },
+    {
+        "label": "databases",
+        "kind": 5,
+        "importPath": "secret_key.secret",
+        "description": "secret_key.secret",
+        "peekOfCode": "databases = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':  'db_libreta',\n        'USER': 'daldemar',\n        'PASSWORD': '1qazxsw2',\n        'PORT': '5432',\n        'HOST': '127.0.0.1',\n    }\n}",
+        "detail": "secret_key.secret",
+        "documentation": {}
+    },
+    {
         "label": "main",
         "kind": 2,
         "importPath": "manage",
