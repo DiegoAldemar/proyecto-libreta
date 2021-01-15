@@ -774,7 +774,7 @@
         "kind": 2,
         "importPath": "contactos.views",
         "description": "contactos.views",
-        "peekOfCode": "def logout_view(request):\n    logout(request)\n    return redirect('login')\n@login_required\ndef get_contactos(request):\n    ver_contactos = Contactos.objects.filter(name_user_id=request.user)\n    numero_contanctos = ver_contactos.count()\n    print(request.user.id)\n    return render(request, 'view_contactos.html', {'ver_contactos':ver_contactos,\n                                                    'numero_contactos':numero_contanctos})",
+        "peekOfCode": "def logout_view(request):\n    logout(request)\n    return redirect('login')\n@login_required\ndef get_contactos(request):\n    ver_contactos = Contactos.objects.filter(name_user_id=request.user).order_by('first_name')\n    numero_contanctos = ver_contactos.count()\n    print(request.user.id)\n    return render(request, 'view_contactos.html', {'ver_contactos':ver_contactos,\n                                                    'numero_contactos':numero_contanctos})",
         "detail": "contactos.views",
         "documentation": {}
     },
@@ -783,7 +783,7 @@
         "kind": 2,
         "importPath": "contactos.views",
         "description": "contactos.views",
-        "peekOfCode": "def get_contactos(request):\n    ver_contactos = Contactos.objects.filter(name_user_id=request.user)\n    numero_contanctos = ver_contactos.count()\n    print(request.user.id)\n    return render(request, 'view_contactos.html', {'ver_contactos':ver_contactos,\n                                                    'numero_contactos':numero_contanctos})\n@login_required\ndef register_contacts(request):\n    if request.method == 'POST':\n        save_contact = Contactos(name_user_id=request.user.id)",
+        "peekOfCode": "def get_contactos(request):\n    ver_contactos = Contactos.objects.filter(name_user_id=request.user).order_by('first_name')\n    numero_contanctos = ver_contactos.count()\n    print(request.user.id)\n    return render(request, 'view_contactos.html', {'ver_contactos':ver_contactos,\n                                                    'numero_contactos':numero_contanctos})\n@login_required\ndef register_contacts(request):\n    if request.method == 'POST':\n        save_contact = Contactos(name_user_id=request.user.id)",
         "detail": "contactos.views",
         "documentation": {}
     },
@@ -793,6 +793,24 @@
         "importPath": "contactos.views",
         "description": "contactos.views",
         "peekOfCode": "def register_contacts(request):\n    if request.method == 'POST':\n        save_contact = Contactos(name_user_id=request.user.id)\n        form = ContactosForm(request.POST, instance=save_contact)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Contacto Guardado!!!!')\n            return redirect('view_contactos')\n    else:\n        form = ContactosForm()",
+        "detail": "contactos.views",
+        "documentation": {}
+    },
+    {
+        "label": "edit_contact",
+        "kind": 2,
+        "importPath": "contactos.views",
+        "description": "contactos.views",
+        "peekOfCode": "def edit_contact(request, id):\n    contacto_editar = Contactos.objects.filter(id=id).values()\n    if request.method == 'POST':\n        contacto_editado = Contactos.objects.get(id=id)\n        contacto_editado.first_name = request.POST['first_name']\n        contacto_editado.last_name = request.POST['last_name']\n        contacto_editado.phone_number = request.POST['phone_number']\n        contacto_editado.email = request.POST['email']\n        contacto_editado.save()\n        messages.success(request, 'Contacto Actualizado!!!')",
+        "detail": "contactos.views",
+        "documentation": {}
+    },
+    {
+        "label": "delete_contacto",
+        "kind": 2,
+        "importPath": "contactos.views",
+        "description": "contactos.views",
+        "peekOfCode": "def delete_contacto(request, id):\n    delete_contacto = Contactos.objects.get(id=id)\n    delete_contacto.delete()\n    messages.warning(request, '¿Desea Eliminar Contacto?')\n    return redirect('view_contactos')\ndef register_user(request):\n    if request.method == 'POST':\n        form = Register_UserForm(request.POST)\n        if form.is_valid():\n            data_form = form.cleaned_data",
         "detail": "contactos.views",
         "documentation": {}
     },
@@ -990,7 +1008,7 @@
         "kind": 5,
         "importPath": "mi_libreta.urls",
         "description": "mi_libreta.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/', include('contactos.api.urls'), name='api'),\n    path('login/', views.login_view, name='login'),\n    path('logout/', views.logout_view, name='logout'),\n    path('contactos/', views.get_contactos, name='view_contactos'),\n    path('contactos/register/', views.register_contacts, name='register_contactos'),\n    path('contactos/guardado/', views.get_contactos, name='guardado_contactos'),\n    path('register-user/', views.register_user, name='register_user'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/', include('contactos.api.urls'), name='api'),\n    path('login/', views.login_view, name='login'),\n    path('logout/', views.logout_view, name='logout'),\n    path('contactos/', views.get_contactos, name='view_contactos'),\n    path('contactos/register/', views.register_contacts, name='register_contactos'),\n    path('contactos/edit/<int:id>/', views.edit_contact, name='edit_contacto'),\n    path('contactos/delete/<int:id>/', views.delete_contacto, name='delete_contacto'),\n    path('contactos/guardado/', views.get_contactos, name='guardado_contactos'),",
         "detail": "mi_libreta.urls",
         "documentation": {}
     },

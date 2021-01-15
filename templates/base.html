@@ -40,14 +40,14 @@
         {% endblock navbar %}
     </div>
 
-    {% block contend %}
+    {% block content %}
         <form action="{% url 'login' %}" method='POST'>
             {% csrf_token %}
             <input type="text" placeholder='Username' required='true' name='username' id='username' value=''>
             <input type="password" placeholder='Password' required='true' name='password'>
             <input type="submit" value='Login'>
         </form>
-    {% endblock contend %}
+    {% endblock content %}
 
 
 </body>

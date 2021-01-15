@@ -9,7 +9,7 @@
     <h1>Register user</h1>
 {% endblock title_h1 %}
 
-{% block contend %}
+{% block content %}
     <form action="" method='POST'>
         {% csrf_token %}
         {{ form.as_p }}
@@ -21,4 +21,4 @@
         <input type="password" required="true" name="password_confirmation" required id="password_confirmation">
         <input type="submit" value="Crear usuario" >
     </form>
-{% endblock contend %}
+{% endblock content %}

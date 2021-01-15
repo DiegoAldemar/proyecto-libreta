@@ -31,7 +31,7 @@ def logout_view(request):
 
 @login_required
 def get_contactos(request):
-    ver_contactos = Contactos.objects.filter(name_user_id=request.user)
+    ver_contactos = Contactos.objects.filter(name_user_id=request.user).order_by('first_name')
     numero_contanctos = ver_contactos.count()
     print(request.user.id)
     return render(request, 'view_contactos.html', {'ver_contactos':ver_contactos,
@@ -51,6 +51,28 @@ def register_contacts(request):
         form = ContactosForm()
     return render(request, 'register_contactos.html', {'form':form})
 
+@login_required
+def edit_contact(request, id):
+    contacto_editar = Contactos.objects.filter(id=id).values()
+    if request.method == 'POST':
+        contacto_editado = Contactos.objects.get(id=id)
+        contacto_editado.first_name = request.POST['first_name']
+        contacto_editado.last_name = request.POST['last_name']
+        contacto_editado.phone_number = request.POST['phone_number']
+        contacto_editado.email = request.POST['email']
+        contacto_editado.save()
+        messages.success(request, 'Contacto Actualizado!!!')
+        print('guardar contacto')
+        return redirect('view_contactos')
+    return render(request, 'edit_contacto.html', {'contacto_editar': contacto_editar})
+
+
+@login_required
+def delete_contacto(request, id):
+    delete_contacto = Contactos.objects.get(id=id)
+    delete_contacto.delete()
+    messages.warning(request, '¿Desea Eliminar Contacto?')
+    return redirect('view_contactos')
 
 def register_user(request):
     if request.method == 'POST':
