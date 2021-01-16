@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Register Contacts
+{% endblock title %}
+
+
+{% block title_h1 %}
+    <h1>Register Contacts</h1>
+    <hr />
+{% endblock title_h1 %}
+
+{% block navbar %}
+    <li>
+        <a href="{% url 'view_contactos' %}">Contacts</a>
+    </li>
+    <li>
+        <a href="{% url 'logout' %}">Salir</a>
+    </li>
+{% endblock navbar %}
+
+{% block content %}
+    <hr />
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+       
+        <input type="submit" value='Guardar'>
+    </form>
+
+    <hr />
+    
+{% endblock content %}

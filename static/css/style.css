@@ -1,0 +1,57 @@
+body{
+    position: relative;
+    width: 1440px;
+    height: 1024px;
+
+    background: #FFFFFF;
+}
+
+#navbar{
+    position: absolute;
+    width: 1440px;
+    height: 85px;
+    left: 0px;
+    top: 68px;
+
+    background: #C4C4C4;
+}
+
+.base-nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 90%;
+    
+}
+
+.base-nav li a{ 
+    
+    padding: 8px;
+    
+    display: inline;
+    float: left;
+
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.base-nav a li{
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+  }
+
+
+
+/* Rectangle 1 */
+
+

@@ -1,0 +1,36 @@
+{% extends "view_contactos.html" %}
+
+{% block title %}
+    Editar Contacto
+{% endblock title %}
+
+{% block title_h1 %}
+    <h1>Editar Contacto</h1>
+{% endblock title_h1 %}
+
+{% block navbar %}
+    <li>
+        <a href={% url 'view_contactos' %}>Volver</a>
+    </li>
+    
+    {{ block.super }}
+{% endblock navbar %}
+
+{% block content %}
+    {% for contacto in contacto_editar %}
+        <form action="" method='POST' id='guardar'>
+            {% csrf_token %}
+            <p>
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" value={{contacto.first_name}}><br><br>
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name" value={{contacto.last_name}}><br><br>
+                <label for="phone_number">Phone Number</label>
+                <input type="text" name="phone_number" value={{contacto.phone_number}}><br><br>
+                <label for="email">Email</label>
+                <input type="text" name="email" value={{contacto.email}}><br><br>
+                <input type="submit" value='Guardar'>
+            </p>
+        </form>
+    {% endfor %}
+{% endblock content %}

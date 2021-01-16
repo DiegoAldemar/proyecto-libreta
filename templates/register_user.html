@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Register user
+{% endblock title %}
+
+{% block title_h1 %}
+    <h1>Register user</h1>
+{% endblock title_h1 %}
+
+{% block content %}
+    <form action="" method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        {% comment %} <label for="password">Password</label>
+        <input type="password" required="true" name="password" required id="password"> {% endcomment %}
+        
+        <label for="password_confirmation">Password Confirmation:</label>
+        <input type="password" required="true" name="password_confirmation" required id="password_confirmation">
+        <input type="submit" value="Crear usuario" >
+    </form>
+{% endblock content %}

@@ -1,0 +1,54 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Contacts
+{% endblock title %}
+
+{% block title_h1 %}
+    <h1>Bienvenido a tus contactos, tienes {{ numero_contactos }} contactos</h1>
+    <h2>{{ request.user.first_name }} {{ user.last_name }}</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div class='message'>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock title_h1 %}
+
+{% block navbar %}
+    <li>
+        <a href="{% url 'register_contactos' %}">Register Contacts</a>
+    </li>
+    <li>
+        <a href= "{% url 'logout' %}" >Salir</a>
+    </li>
+{% endblock navbar %}
+
+{% block content %}
+    <table border="1">
+        <tr>
+            {% comment %} <th>N°</th> {% endcomment %}
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr>
+            {% for ver_contacto in ver_contactos %}
+                    <tr>
+                        <td>{{ ver_contacto.first_name }}</td>
+                        <td>{{ ver_contacto.last_name }}</td>
+                        <td>{{ ver_contacto.phone_number }}</td>
+                        <td>{{ ver_contacto.email }}</td>
+                        <td><a href={% url 'edit_contacto' ver_contacto.id %}>Editar</a></td>
+                        <td><a href={% url 'delete_contacto' ver_contacto.id %}>Eliminar</a></td>
+                    </tr>
+            {% endfor %}
+        </tr>
+    </table>
+{% endblock content %}
+

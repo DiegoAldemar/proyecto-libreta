@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Libreta | {% block title %}
+        login
+    {% endblock title %}</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}" /> {% endcomment %}
+</head>
+<body>
+    <div id="navbar">
+        {% block title_h1 %}
+            <h1>Login</h1>
+        {% endblock %}
+        
+        {% block navbar %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class='message'>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <hr />
+            <header>
+                <ul class="base-nav">
+                    <li>
+                        <a href="{% url 'login' %}">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'register_user' %}">Register User</a>
+                    </li>
+                </ul>
+            </header>
+            
+            
+        {% endblock navbar %}
+    </div>
+
+    {% block content %}
+        <form action={% url 'login' %} method='POST'>
+            {% csrf_token %}
+            <input type="text" placeholder='Username' required='true' name='username' id='username' value=''>
+            <input type="password" placeholder='Password' required='true' name='password'>
+            <input type="submit" value='Login'>
+        </form>
+    {% endblock content %}
+
+
+</body>
+</html>
