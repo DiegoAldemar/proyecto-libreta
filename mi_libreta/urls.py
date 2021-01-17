@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from contactos import views
 
+from django.views.generic import RedirectView
+from django.conf.urls import url
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('contactos.api.urls'), name='api'),
@@ -29,4 +32,4 @@ urlpatterns = [
     path('contactos/delete/<int:id>/', views.delete_contacto, name='delete_contacto'),
     path('contactos/guardado/', views.get_contactos, name='guardado_contactos'),
     path('register-user/', views.register_user, name='register_user'),
-]
+] 

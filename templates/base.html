@@ -8,47 +8,57 @@
     <title>Libreta | {% block title %}
         login
     {% endblock title %}</title>
-    {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}" /> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
 <body>
-    <div id="navbar">
-        {% block title_h1 %}
-            <h1>Login</h1>
-        {% endblock %}
-        
-        {% block navbar %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class='message'>
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-            <hr />
-            <header>
-                <ul class="base-nav">
-                    <li>
-                        <a href="{% url 'login' %}">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'register_user' %}">Register User</a>
-                    </li>
-                </ul>
-            </header>
-            
-            
-        {% endblock navbar %}
+    <div class="header">
+        <header>
+            <nav>
+                    {% if messages %}
+                        {% for message in messages %}
+                            
+                                {{ message }}
+                            
+                        {% endfor %}
+                    {% endif %}
+                    
+                    <ul>
+                        <li><img src="{% static 'img/logo-contactos.png' %}" alt="Logo Contactos" width="80px"></li>
+                        {% block navbar %}
+                            <li>
+                                <a href="{% url 'login' %}">Inicio</a>
+                            </li>
+                            <div id="register_user_rigth">
+                                <li>
+                                    <a href="{% url 'register_user' %}">Regístrate</a>
+                                </li>
+                            </div>
+                        {% endblock navbar %}
+                    </ul>
+                        
+            </nav>
+        </header>
     </div>
-
-    {% block content %}
-        <form action={% url 'login' %} method='POST'>
-            {% csrf_token %}
-            <input type="text" placeholder='Username' required='true' name='username' id='username' value=''>
-            <input type="password" placeholder='Password' required='true' name='password'>
-            <input type="submit" value='Login'>
-        </form>
-    {% endblock content %}
-
-
+    
+    <div class="column side"></div>
+    
+    <div class="column middle">
+        <main>
+            {% block title_h1 %}
+                        <h1>Login</h1>
+                    {% endblock %}
+            {% block content %}
+            <form action={% url 'login' %} method='POST'>
+                {% csrf_token %}
+                <input type="text" placeholder='Username' required='true' name='username' id='username' value=''>
+                <input type="password" placeholder='Password' required='true' name='password'>
+                <input type="submit" value='Login'>
+            </form>
+        {% endblock content %}
+        </main>
+    </div>
+    
+    <div class="column side"></div>
+   
 </body>
 </html>

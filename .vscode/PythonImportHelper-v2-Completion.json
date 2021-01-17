@@ -554,6 +554,22 @@
         "documentation": {}
     },
     {
+        "label": "RedirectView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "url",
+        "importPath": "django.conf.urls",
+        "description": "django.conf.urls",
+        "isExtraImport": true,
+        "detail": "django.conf.urls",
+        "documentation": {}
+    },
+    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",

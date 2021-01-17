@@ -7,17 +7,21 @@
 
 
 {% block title_h1 %}
-    <h1>Register Contacts</h1>
+    <h1>Nuevo Contacto</h1>
     <hr />
 {% endblock title_h1 %}
 
 {% block navbar %}
-    <li>
-        <a href="{% url 'view_contactos' %}">Contacts</a>
-    </li>
-    <li>
-        <a href="{% url 'logout' %}">Salir</a>
-    </li>
+    <ul>
+        <li>
+            <a href="{% url 'view_contactos' %}">Contactos</a>
+        </li>
+        <div id="register_user_rigth">
+            <li>
+                <a href="{% url 'logout' %}">Salir</a>
+            </li>
+        </div>
+    </ul>
 {% endblock navbar %}
 
 {% block content %}
