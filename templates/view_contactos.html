@@ -18,21 +18,16 @@
 {% endblock title_h1 %}
 
 {% block navbar %}
-    
-    <ul>
-        <li>
-            <a href="{% url 'register_contactos' %}">Nuevo Contacto</a>
-        </li>
-        <div id="register_user_rigth">
-            <li>
-                <a href= "{% url 'logout' %}" >Salir</a>
-            </li>
-        </div>
-    </ul>
+    <li>
+        <a href="{% url 'register_contactos' %}">Nuevo Contacto</a>
+    </li>
+    <li class="rigth" class="active">
+        <a href= "{% url 'logout' %}" >Salir</a>
+    </li>
 {% endblock navbar %}
 
 {% block content %}
-    <table border="1">
+    <table>
         <tr>
             {% comment %} <th>N°</th> {% endcomment %}
             <th>First Name</th>

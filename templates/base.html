@@ -14,34 +14,33 @@
     <div class="header">
         <header>
             <nav>
-                    {% if messages %}
-                        {% for message in messages %}
-                            
-                                {{ message }}
-                            
-                        {% endfor %}
-                    {% endif %}
-                    
-                    <ul>
-                        <li><img src="{% static 'img/logo-contactos.png' %}" alt="Logo Contactos" width="80px"></li>
-                        {% block navbar %}
-                            <li>
-                                <a href="{% url 'login' %}">Inicio</a>
-                            </li>
-                            <div id="register_user_rigth">
-                                <li>
-                                    <a href="{% url 'register_user' %}">Regístrate</a>
-                                </li>
-                            </div>
-                        {% endblock navbar %}
-                    </ul>
+                {% if messages %}
+                    {% for message in messages %}
                         
+                            {{ message }}
+                        
+                    {% endfor %}
+                {% endif %}
+                
+                <ul class="topnav">
+                    <li><img src="{% static 'img/logo-contactos.png' %}" alt="Logo Contactos" width="80px"></li>
+                    {% block navbar %}
+                        <li>
+                            <a class="active" href="{% url 'login' %}">Inicio</a>
+                        </li>
+                        
+                        <li class="rigth" class="active">
+                            <a href="{% url 'register_user' %}">Regístrate</a>
+                        </li>
+                        
+                    {% endblock navbar %}
+                </ul>      
             </nav>
         </header>
     </div>
     
     <div class="column side"></div>
-    
+
     <div class="column middle">
         <main>
             {% block title_h1 %}
@@ -50,15 +49,17 @@
             {% block content %}
             <form action={% url 'login' %} method='POST'>
                 {% csrf_token %}
-                <input type="text" placeholder='Username' required='true' name='username' id='username' value=''>
-                <input type="password" placeholder='Password' required='true' name='password'>
+                <label for="fusername">Usuario</label>
+                <input type="text" placeholder='Usuario' required='true' name='username' id='fusername' value=''>
+                <label for="fpassword">Contraceña</label>
+                <input type="password" placeholder='Contraceña' required='true' name='password' id='fpassword'>
                 <input type="submit" value='Login'>
             </form>
         {% endblock content %}
         </main>
     </div>
     
-    <div class="column side"></div>
+    <div class="column side1"></div>
    
 </body>
 </html>

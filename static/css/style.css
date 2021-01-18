@@ -27,23 +27,31 @@
   .column.side {
     width: 25%;
   }
+
+  .column.side1 {
+    width: 25%;
+  }
   
   /* Middle column */
   .column.middle {
     width: 50%;
+    height: auto;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), -9px -2px 4px rgba(0, 0, 0, 0.25), 5px -2px 4px rgba(0, 0, 0, 0.25);
   }
 
-  @media (max-width: 600px) {
+  /* @media (max-width: 600px) {
     .column.side {
       width: auto;
     }
-  }
+  } */
 
 
   /* configuracion navbar */
-  ul {
+ul.topnav {
+    position: sticky;
+    top: 0;
+    
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -52,30 +60,62 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
-  li{
-      display:  inline;
-  }
-  
-  li img{
-      float: left;
-      display: block;
-      text-align: center;
-     
-  }
+ul.topnav li{
+    display:  inline;
+}
 
-li a{
+ul.topnav li img{
+    float: left;
+    display: block;
+    text-align: center;
+    
+}
+
+ul.topnav li a{
       float: left;
       display: block;
       padding: 20px;
       text-decoration: none;
       color: black;
       
-      
   }
 
-#register_user_rigth a{
+
+ul.topnav li.rigth{
+    float: right;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=submit]{
+  padding: 16px 32px;
+  float: right;
+}
+
+
+@media screen and (max-width: 600px) {
+    ul.topnav li.rigth, 
+    ul.topnav li a img{float: none;}
+    body {margin-left: auto;
+        margin-right: auto;}
+    .column.side {width: auto;}
+    .column.side1 {width: 0;
+    float: none;}
+    .column.middle {width: 90%;}
+}
+
+/* #register_user_rigth a{
     float: right;
     display: block;
     padding: 20px;
     color: black;
+} */
+
+li a:hover{
+    background-color: rgba(238, 230, 230, 0.47);
 }
