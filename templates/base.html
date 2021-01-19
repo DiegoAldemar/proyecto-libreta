@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Libreta | {% block title %}
-        login
+        Entrar
     {% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
@@ -44,7 +44,7 @@
     <div class="column middle">
         <main>
             {% block title_h1 %}
-                        <h1>Login</h1>
+                        <h1>Ingresar</h1>
                     {% endblock %}
             {% block content %}
             <form action={% url 'login' %} method='POST'>
@@ -53,7 +53,7 @@
                 <input type="text" placeholder='Usuario' required='true' name='username' id='fusername' value=''>
                 <label for="fpassword">Contraceña</label>
                 <input type="password" placeholder='Contraceña' required='true' name='password' id='fpassword'>
-                <input type="submit" value='Login'>
+                <input type="submit" value='Entrar'>
             </form>
         {% endblock content %}
         </main>
