@@ -1049,7 +1049,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = '/static'\nSTATICFILES_DIRS = [BASE_DIR / 'static']",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = [BASE_DIR / 'staticfiles']\nSTATICFILES_DIRS = [BASE_DIR / 'static']",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
@@ -1058,7 +1058,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = '/static'\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = [BASE_DIR / 'staticfiles']\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
@@ -1067,7 +1067,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = '/static'\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion\nLOGIN_URL ='/login/'",
+        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = [BASE_DIR / 'staticfiles']\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion\nLOGIN_URL ='/login/'",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
@@ -1076,7 +1076,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = '/static'\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion\nLOGIN_URL ='/login/'\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'",
+        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = [BASE_DIR / 'staticfiles']\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion\nLOGIN_URL ='/login/'\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
@@ -1085,7 +1085,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = '/static'\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion\nLOGIN_URL ='/login/'\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\nSTATIC_URL = '/static/'\nSTATIC_ROOT = [BASE_DIR / 'staticfiles']\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion\nLOGIN_URL ='/login/'\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
@@ -1094,7 +1094,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "STATIC_URL = '/static/'\nSTATIC_ROOT = '/static'\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion\nLOGIN_URL ='/login/'\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'",
+        "peekOfCode": "STATIC_URL = '/static/'\nSTATIC_ROOT = [BASE_DIR / 'staticfiles']\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion\nLOGIN_URL ='/login/'\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
@@ -1103,7 +1103,7 @@
         "kind": 5,
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
-        "peekOfCode": "STATIC_ROOT = '/static'\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion\nLOGIN_URL ='/login/'\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'",
+        "peekOfCode": "STATIC_ROOT = [BASE_DIR / 'staticfiles']\nSTATICFILES_DIRS = [BASE_DIR / 'static']\n#login required, la redireccion a login para losque no han iniciado sesion\nLOGIN_URL ='/login/'\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },
