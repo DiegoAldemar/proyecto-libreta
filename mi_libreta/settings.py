@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = debug
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMidleware',
 ]
 
 ROOT_URLCONF = 'mi_libreta.urls'
@@ -86,7 +87,16 @@ WSGI_APPLICATION = 'mi_libreta.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = databases
+""" DATABASES = databases """
+
+import dj_database_url
+from decouple import config
+
+DATABASES ={
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+}
 
 
 # Password validation
@@ -131,3 +141,5 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 
 #login required, la redireccion a login para losque no han iniciado sesion
 LOGIN_URL ='/login/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
