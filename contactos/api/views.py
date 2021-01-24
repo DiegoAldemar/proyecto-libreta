@@ -1,10 +1,13 @@
 from django.shortcuts import render
-
+from django.http import Http404, HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt 
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import generics, viewsets, permissions
+from rest_framework.parsers import JSONParser
+
 
 from contactos.api import serializers
 
@@ -13,13 +16,13 @@ from contactos.models import Contactos
 from django.forms import BaseModelFormSet
 
 from django.contrib.auth.models import User
+from contactos.api.serializers import ContactosSerealizer
 
 
 
 
 
 class HelloAPI(APIView):
-
     serializer_class = serializers.HelloSerializers
     #prueba api view
     def get(self, request, format=None):
@@ -63,17 +66,33 @@ class HelloAPI(APIView):
 
         return Response({'method': 'DELETE'})
 
+@csrf_exempt
+def contactos_list(request):
+    if request.method == 'GET':
+        contactos = Contactos.objects.all()
+        serializers = ContactosSerealizer(contactos, many=True)
+        return JsonResponse(serializers.data, safe=False)
 
-class ContactosList(generics.ListCreateAPIView):
+
+""" class ContactosList(generics.ListCreateAPIView):
     queryset = Contactos.objects.all()
     serializer_class = serializers.ContactosSerealizer
 
-class ContactoDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Contactos.objects.all()
-    serializer_class = serializers.ContactosSerealizer
+class ContactoDetail(APIView):
+    def get_object(self, nameuser):
+        try:
+            return Contactos.objects.filter(name_user_id=nameuser)
+        except Contactos.DoesNotExist:
+            raise Http404
 
+    def get(self, request, nameuser, format=None):
+        contactos = self.get_object(nameuser)
+        serializers = ContactosSerealizer(contactos)
+        return Response(serializers.data)
+    
+    
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = serializers.UserSerializer
-    permission_class = [permissions.IsAuthenticated]
+    permission_class = [permissions.IsAuthenticated] """
     

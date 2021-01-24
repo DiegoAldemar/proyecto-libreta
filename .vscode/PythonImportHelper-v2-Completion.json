@@ -168,6 +168,14 @@
         "documentation": {}
     },
     {
+        "label": "format_suffix_patterns",
+        "importPath": "rest_framework.urlpatterns",
+        "description": "rest_framework.urlpatterns",
+        "isExtraImport": true,
+        "detail": "rest_framework.urlpatterns",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -192,6 +200,46 @@
         "documentation": {}
     },
     {
+        "label": "Http404",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "JsonResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponseRedirect",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
         "label": "APIView",
         "importPath": "rest_framework.views",
         "description": "rest_framework.views",
@@ -205,6 +253,14 @@
         "description": "rest_framework.response",
         "isExtraImport": true,
         "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "JSONParser",
+        "importPath": "rest_framework.parsers",
+        "description": "rest_framework.parsers",
+        "isExtraImport": true,
+        "detail": "rest_framework.parsers",
         "documentation": {}
     },
     {
@@ -237,6 +293,14 @@
         "description": "django.forms",
         "isExtraImport": true,
         "detail": "django.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ContactosSerealizer",
+        "importPath": "contactos.api.serializers",
+        "description": "contactos.api.serializers",
+        "isExtraImport": true,
+        "detail": "contactos.api.serializers",
         "documentation": {}
     },
     {
@@ -473,14 +537,6 @@
         "documentation": {}
     },
     {
-        "label": "HttpResponseRedirect",
-        "importPath": "django.http",
-        "description": "django.http",
-        "isExtraImport": true,
-        "detail": "django.http",
-        "documentation": {}
-    },
-    {
         "label": "authenticate",
         "importPath": "django.contrib.auth",
         "description": "django.contrib.auth",
@@ -591,7 +647,7 @@
         "kind": 6,
         "importPath": "contactos.api.serializers",
         "description": "contactos.api.serializers",
-        "peekOfCode": "class HelloSerializers(serializers.Serializer):\n    name = serializers.CharField(max_length=10)\nclass ContactosSerealizer(serializers.ModelSerializer):\n    class Meta:\n        model = Contactos\n        fields = ('name_user', 'first_name', 'last_name', 'phone_number', 'email')\nclass UserSerializer(serializers.HyperlinkedModelSerializer):\n    class Meta:\n        model = User\n        fields = ['username', 'password', 'email']",
+        "peekOfCode": "class HelloSerializers(serializers.Serializer):\n    name = serializers.CharField(max_length=10)\nclass ContactosSerealizer(serializers.ModelSerializer):\n    class Meta:\n        model = Contactos\n        fields = ('first_name', 'last_name', 'phone_number', 'email', 'name_user_id')\nclass UserSerializer(serializers.HyperlinkedModelSerializer):\n    class Meta:\n        model = User\n        fields = ['username', 'password', 'email']",
         "detail": "contactos.api.serializers",
         "documentation": {}
     },
@@ -600,7 +656,7 @@
         "kind": 6,
         "importPath": "contactos.api.serializers",
         "description": "contactos.api.serializers",
-        "peekOfCode": "class ContactosSerealizer(serializers.ModelSerializer):\n    class Meta:\n        model = Contactos\n        fields = ('name_user', 'first_name', 'last_name', 'phone_number', 'email')\nclass UserSerializer(serializers.HyperlinkedModelSerializer):\n    class Meta:\n        model = User\n        fields = ['username', 'password', 'email']",
+        "peekOfCode": "class ContactosSerealizer(serializers.ModelSerializer):\n    class Meta:\n        model = Contactos\n        fields = ('first_name', 'last_name', 'phone_number', 'email', 'name_user_id')\nclass UserSerializer(serializers.HyperlinkedModelSerializer):\n    class Meta:\n        model = User\n        fields = ['username', 'password', 'email']",
         "detail": "contactos.api.serializers",
         "documentation": {}
     },
@@ -614,11 +670,11 @@
         "documentation": {}
     },
     {
-        "label": "router",
+        "label": "urlpatterns",
         "kind": 5,
         "importPath": "contactos.api.urls",
         "description": "contactos.api.urls",
-        "peekOfCode": "router = routers.DefaultRouter()\nrouter.register(r'users', views.UserViewSet)\nurlpatterns = [\n        path('', include(router.urls)),\n        path('hello-api/', views.HelloAPI.as_view()),\n        path('contactos/', views.ContactosList.as_view()),\n        #path('users/', views.UserViewSet.as_view()),\n]",
+        "peekOfCode": "urlpatterns = [\n        path('hello-api/', views.HelloAPI.as_view()),\n        path('contactos/', views.contactos_list),\n        #path('contactos/', views.ContactosList.as_view()),\n        #path('contactos/<int:nameuser>/', views.ContactoDetail.as_view()),\n        #path('users/', views.UserViewSet.as_view()),\n]\nurlpatterns = format_suffix_patterns(urlpatterns)",
         "detail": "contactos.api.urls",
         "documentation": {}
     },
@@ -627,7 +683,7 @@
         "kind": 5,
         "importPath": "contactos.api.urls",
         "description": "contactos.api.urls",
-        "peekOfCode": "urlpatterns = [\n        path('', include(router.urls)),\n        path('hello-api/', views.HelloAPI.as_view()),\n        path('contactos/', views.ContactosList.as_view()),\n        #path('users/', views.UserViewSet.as_view()),\n]",
+        "peekOfCode": "urlpatterns = format_suffix_patterns(urlpatterns)",
         "detail": "contactos.api.urls",
         "documentation": {}
     },
@@ -641,20 +697,11 @@
         "documentation": {}
     },
     {
-        "label": "ContactosList",
-        "kind": 6,
-        "importPath": "contactos.api.views",
-        "description": "contactos.api.views",
-        "peekOfCode": "class ContactosList(generics.ListCreateAPIView):\n    queryset = Contactos.objects.all()\n    serializer_class = serializers.ContactosSerealizer\nclass ContactoDetail(generics.RetrieveUpdateDestroyAPIView):\n    queryset = Contactos.objects.all()\n    serializer_class = serializers.ContactosSerealizer\nclass UserViewSet(viewsets.ModelViewSet):\n    queryset = User.objects.all().order_by('-date_joined')\n    serializer_class = serializers.UserSerializer\n    permission_class = [permissions.IsAuthenticated]",
-        "detail": "contactos.api.views",
-        "documentation": {}
-    },
-    {
         "label": "ContactoDetail",
         "kind": 6,
         "importPath": "contactos.api.views",
         "description": "contactos.api.views",
-        "peekOfCode": "class ContactoDetail(generics.RetrieveUpdateDestroyAPIView):\n    queryset = Contactos.objects.all()\n    serializer_class = serializers.ContactosSerealizer\nclass UserViewSet(viewsets.ModelViewSet):\n    queryset = User.objects.all().order_by('-date_joined')\n    serializer_class = serializers.UserSerializer\n    permission_class = [permissions.IsAuthenticated]",
+        "peekOfCode": "class ContactoDetail(APIView):\n    def get_object(self, nameuser):\n        try:\n            return Contactos.objects.filter(name_user_id=nameuser)\n        except Contactos.DoesNotExist:\n            raise Http404\n    def get(self, request, nameuser, format=None):\n        contactos = self.get_object(nameuser)\n        serializers = ContactosSerealizer(contactos)\n        return Response(serializers.data)",
         "detail": "contactos.api.views",
         "documentation": {}
     },
@@ -663,7 +710,16 @@
         "kind": 6,
         "importPath": "contactos.api.views",
         "description": "contactos.api.views",
-        "peekOfCode": "class UserViewSet(viewsets.ModelViewSet):\n    queryset = User.objects.all().order_by('-date_joined')\n    serializer_class = serializers.UserSerializer\n    permission_class = [permissions.IsAuthenticated]",
+        "peekOfCode": "class UserViewSet(viewsets.ModelViewSet):\n    queryset = User.objects.all().order_by('-date_joined')\n    serializer_class = serializers.UserSerializer\n    permission_class = [permissions.IsAuthenticated] \"\"\"",
+        "detail": "contactos.api.views",
+        "documentation": {}
+    },
+    {
+        "label": "contactos_list",
+        "kind": 2,
+        "importPath": "contactos.api.views",
+        "description": "contactos.api.views",
+        "peekOfCode": "def contactos_list(request):\n    if request.method == 'GET':\n        contactos = Contactos.objects.all()\n        serializers = ContactosSerealizer(contactos, many=True)\n        return JsonResponse(serializers.data, safe=False)\n\"\"\" class ContactosList(generics.ListCreateAPIView):\n    queryset = Contactos.objects.all()\n    serializer_class = serializers.ContactosSerealizer\nclass ContactoDetail(APIView):\n    def get_object(self, nameuser):",
         "detail": "contactos.api.views",
         "documentation": {}
     },
@@ -898,6 +954,15 @@
         "importPath": "mi_libreta.settings",
         "description": "mi_libreta.settings",
         "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n#mis apps\n    'contactos',\n#API",
+        "detail": "mi_libreta.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REST_FRAMEWORK",
+        "kind": 5,
+        "importPath": "mi_libreta.settings",
+        "description": "mi_libreta.settings",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.IsAuthenticatedOrReadOnly', # new\n    ]\n}\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',",
         "detail": "mi_libreta.settings",
         "documentation": {}
     },

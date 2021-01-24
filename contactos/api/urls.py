@@ -16,14 +16,18 @@ Including another URLconf
 from django.urls import path, include
 from contactos.api import views
 from rest_framework import routers
+from rest_framework.urlpatterns import format_suffix_patterns
 
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
+
 
 urlpatterns = [
-        path('', include(router.urls)),
+        
         path('hello-api/', views.HelloAPI.as_view()),
-        path('contactos/', views.ContactosList.as_view()),
+        path('contactos/', views.contactos_list),
+        #path('contactos/', views.ContactosList.as_view()),
+        #path('contactos/<int:nameuser>/', views.ContactoDetail.as_view()),
         #path('users/', views.UserViewSet.as_view()),
 
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

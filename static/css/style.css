@@ -100,7 +100,7 @@ input[type=submit]{
 
 h1{
   color: rgb(41, 37, 37);
-  text-shadow: 0px 4px 4px rgba(209, 203, 203, 0.967);
+  /* text-shadow: 0px 4px 4px rgba(209, 203, 203, 0.967); */
   text-align: center;
 }
 
@@ -119,17 +119,22 @@ th {
   color: white;
 }
 
+
+
 tr:nth-child(even) {background-color: #f2f2f2;}
+tr:hover {background-color: #ff7a7a63;}
 
 @media screen and (max-width: 600px) {
     ul.topnav li.rigth, 
-    ul.topnav li a img{float: none;}
+    ul.topnav li a img{float: center;}
     body {margin-left: auto;
         margin-right: auto;}
-    .column.side {width: auto;}
-    .column.side1 {width: 0;
+    .column.side {width: 0px;}
+    .column.side1 {width: 0px;
     float: none;}
+    
     .column.middle {width: 90%;}
+    
 }
 
 /* #register_user_rigth a{
