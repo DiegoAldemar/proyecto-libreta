@@ -1097,7 +1097,7 @@
         "kind": 5,
         "importPath": "mi_libreta.urls",
         "description": "mi_libreta.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/', include('contactos.api.urls'), name='api'),\n    path('login/', views.login_view, name='login'),\n    path('logout/', views.logout_view, name='logout'),\n    path('contactos/', views.get_contactos, name='view_contactos'),\n    path('contactos/register/', views.register_contacts, name='register_contactos'),\n    path('contactos/edit/<int:id>/', views.edit_contact, name='edit_contacto'),\n    path('contactos/delete/<int:id>/', views.delete_contacto, name='delete_contacto'),\n    path('contactos/guardado/', views.get_contactos, name='guardado_contactos'),",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/', include('contactos.api.urls'), name='api'),\n    path('', views.login_view, name='login'),\n    path('logout/', views.logout_view, name='logout'),\n    path('contactos/', views.get_contactos, name='view_contactos'),\n    path('contactos/register/', views.register_contacts, name='register_contactos'),\n    path('contactos/edit/<int:id>/', views.edit_contact, name='edit_contacto'),\n    path('contactos/delete/<int:id>/', views.delete_contacto, name='delete_contacto'),\n    path('contactos/guardado/', views.get_contactos, name='guardado_contactos'),",
         "detail": "mi_libreta.urls",
         "documentation": {}
     },
