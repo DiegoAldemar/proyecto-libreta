@@ -15,18 +15,15 @@ from secret_key.secret import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+print(f"esto es {BASE_DIR}")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_key
+SECRET_KEY = '0unkb-1ee1_r6$0s1-_(e11sd%__2ihj$&-@s7lmyweslkm=_('
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = debug
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -61,7 +58,7 @@ ROOT_URLCONF = 'mi_libreta.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / '../templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,10 +74,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mi_libreta.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = databases
 
 
 # Password validation
@@ -121,7 +115,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/static'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [BASE_DIR / '../static']
 
 #login required, la redireccion a login para losque no han iniciado sesion
 LOGIN_URL ='/login/'
