@@ -8,7 +8,7 @@ class HelloSerializers(serializers.Serializer):
 class ContactosSerealizer(serializers.ModelSerializer):
     class Meta:
         model = Contactos
-        fields = ('name_user', 'first_name', 'last_name', 'phone_number', 'email')
+        fields = ('first_name', 'last_name', 'phone_number', 'email', 'name_user_id')
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

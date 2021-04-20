@@ -1,12 +1,12 @@
 
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
     Contacts
 {% endblock title %}
 
 {% block title_h1 %}
-    <h1>Bienvenido a tus contactos, tienes {{ numero_contactos }} contactos</h1>
+    <h1>Tienes {{ numero_contactos }} contactos</h1>
     <h2>{{ request.user.first_name }} {{ user.last_name }}</h2>
     {% if messages %}
         {% for message in messages %}
@@ -27,6 +27,7 @@
 {% endblock navbar %}
 
 {% block content %}
+    
     <table>
         <tr>
             {% comment %} <th>N°</th> {% endcomment %}
@@ -44,11 +45,12 @@
                         <td>{{ ver_contacto.last_name }}</td>
                         <td>{{ ver_contacto.phone_number }}</td>
                         <td>{{ ver_contacto.email }}</td>
-                        <td><a href={% url 'edit_contacto' ver_contacto.id %}>Editar</a></td>
-                        <td><a href={% url 'delete_contacto' ver_contacto.id %}>Eliminar</a></td>
+                        <td><a href={% url 'edit_contacto' ver_contacto.id %}> <img src={% static 'img/editar1.png' %} alt="Editar" width="30px"> </a></td>
+                        <td><a href={% url 'delete_contacto' ver_contacto.id %}> <img src={% static 'img/eliminar1.png' %} alt="Eliminar" width="30px"> </a></td>
                     </tr>
             {% endfor %}
         </tr>
     </table>
+    
 {% endblock content %}
 
