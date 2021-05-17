@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Libreta | {% block title %}
+        Entrar
+    {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <div class="header">
+        <header>
+            <nav>
+                {% if messages %}
+                    {% for message in messages %}
+                        
+                            {{ message }}
+                        
+                    {% endfor %}
+                {% endif %}
+                
+                <ul class="topnav">
+                    <li><img src="{% static 'img/logo-contactos.png' %}" alt="Logo Contactos" width="80px"></li>
+                    {% block navbar %}
+                        <li>
+                            <a class="active" href="{% url 'login' %}">Inicio</a>
+                        </li>
+                        
+                        <li class="rigth" class="active">
+                            <a href="{% url 'register_user' %}">Regístrate</a>
+                        </li>
+                        
+                    {% endblock navbar %}
+                </ul>      
+            </nav>
+        </header>
+    </div>
+    
+    <div class="column side"></div>
+
+    <div id="id-middle" class="column middle">
+        <main>
+            {% block title_h1 %}
+                        <h1>Ingresar</h1>
+                    {% endblock %}
+            {% block content %}
+            <form action={% url 'login' %} method='POST'>
+                {% csrf_token %}
+                <label for="fusername">Usuario</label>
+                <input type="text" placeholder='Usuario' required='true' name='username' id='fusername' value=''>
+                <label for="fpassword">Contraceña</label>
+                <input type="password" placeholder='Contraceña' required='true' name='password' id='fpassword'>
+                <input type="submit" value='Entrar'>
+            </form>
+        {% endblock content %}
+        </main>
+    </div>
+    
+    <div class="column side1"></div>
+   
+</body>
+</html>

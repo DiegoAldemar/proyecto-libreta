@@ -13,15 +13,29 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from secret_key.secret import *
 
+from django.core.exceptions import ImproperlyConfigured
+import json
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print(f"esto es {BASE_DIR}")
+#print(f"esto es {BASE_DIR}")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0unkb-1ee1_r6$0s1-_(e11sd%__2ihj$&-@s7lmyweslkm=_('
+
+with open("secret.json") as f:
+    secret = json.loads(f.read())
+
+def get_secret(secret_name, secrets=secret):
+    try:
+        return secrets[secret_name]
+    except:
+        msg = f"la variable {secret_name} no existe"
+        raise ImproperlyConfigured(msg)
+
+SECRET_KEY = get_secret("SECRET_KEY")
 
 
 
@@ -116,12 +130,3 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATIC_URL = '/static/'
-STATIC_ROOT = '/static'
-STATICFILES_DIRS = [BASE_DIR / '../static']
-
-#login required, la redireccion a login para losque no han iniciado sesion
-LOGIN_URL ='/login/'

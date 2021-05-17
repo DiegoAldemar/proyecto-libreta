@@ -23,6 +23,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('contactos.api.urls'), name='api'),
+    path('', include('contactos.urls'), name='contactos'),
 
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
