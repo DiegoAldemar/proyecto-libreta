@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 #mis apps
-    'contactos',
+    'aplications.contactos',
 
 #API
     'rest_framework',

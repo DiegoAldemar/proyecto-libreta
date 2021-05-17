@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .forms import ContactosForm, Register_UserForm
-from contactos.models import Contactos
+from .models import Contactos
 from django.forms import BaseModelFormSet
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout

@@ -1,5 +1,5 @@
 from rest_framework import  serializers
-from contactos.models import Contactos
+from aplications.contactos.models import Contactos
 from django.contrib.auth.models import User
 
 class HelloSerializers(serializers.Serializer):
