@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .forms import ContactosForm, Register_UserForm
-from contactos.models import Contactos
+from .models import Contactos
 from django.forms import BaseModelFormSet
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -9,6 +9,15 @@ from django.contrib.auth.decorators import login_required
 from .models import Contactos
 from django.contrib import messages
 
+from django.views.generic import TemplateView, FormView
+from django.contrib.auth.views import LoginView
+
+class HomeView(TemplateView):
+    template_name = 'base.html'
+
+class LoginView(LoginView):
+    template_name = 'index.html'
+    
 
 def login_view(request):
     if request.method == 'POST':

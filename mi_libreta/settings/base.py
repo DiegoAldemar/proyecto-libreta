@@ -14,20 +14,38 @@ from pathlib import Path
 from secret_key.secret import *
 import os
 
+from django.core.exceptions import ImproperlyConfigured
+import json
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+#print(f"esto es {BASE_DIR}")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_key
 
+<<<<<<< HEAD:mi_libreta/settings.py
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+=======
+with open("secret.json") as f:
+    secret = json.loads(f.read())
+
+def get_secret(secret_name, secrets=secret):
+    try:
+        return secrets[secret_name]
+    except:
+        msg = f"la variable {secret_name} no existe"
+        raise ImproperlyConfigured(msg)
+
+SECRET_KEY = get_secret("SECRET_KEY")
+
+
+>>>>>>> master:mi_libreta/settings/base.py
 
 
 # Application definition
@@ -41,7 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 #mis apps
-    'contactos',
+    'aplications.contactos',
 
 #API
     'rest_framework',
@@ -70,7 +88,7 @@ ROOT_URLCONF = 'mi_libreta.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / '../templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,9 +104,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mi_libreta.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+<<<<<<< HEAD:mi_libreta/settings.py
 """ DATABASES = databases """
 
 import dj_database_url
@@ -99,6 +116,8 @@ DATABASES ={
         default=config('DATABASE_URL')
     )
 }
+=======
+>>>>>>> master:mi_libreta/settings/base.py
 
 
 # Password validation
@@ -134,6 +153,7 @@ USE_L10N = True
 USE_TZ = True
 
 
+<<<<<<< HEAD:mi_libreta/settings.py
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -147,3 +167,5 @@ STATICFILES_DIRS = (
 LOGIN_URL ='/login/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+=======
+>>>>>>> master:mi_libreta/settings/base.py

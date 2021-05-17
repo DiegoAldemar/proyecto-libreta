@@ -1,5 +1,5 @@
 from django.contrib import admin
-from contactos.models import Contactos
+from .models import Contactos
 # Register your models here.
 
 class Contactos_admin(admin.ModelAdmin):

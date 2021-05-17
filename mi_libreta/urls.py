@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from contactos import views
+from aplications.contactos import views
 
 from django.views.generic import RedirectView
 from django.conf.urls import url
@@ -25,7 +25,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('contactos.api.urls'), name='api'),
+    path('api/', include('aplications.contactos.api.urls'), name='api'),
+    path('', include('aplications.contactos.urls'), name='contactos'),
 
     path('', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),

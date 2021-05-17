@@ -13,21 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.urls import path, include
-from contactos.api import views
-from rest_framework import routers
-from rest_framework.urlpatterns import format_suffix_patterns
+from .views import HomeView
 
 
 
 urlpatterns = [
-        
-        path('hello-api/', views.HelloAPI.as_view()),
-        path('contactos/', views.contactos_list),
-        #path('contactos/', views.ContactosList.as_view()),
-        #path('contactos/<int:nameuser>/', views.ContactoDetail.as_view()),
-        #path('users/', views.UserViewSet.as_view()),
-
+    path('', HomeView.as_view()),
 ]
-
-urlpatterns = format_suffix_patterns(urlpatterns)
